@@ -1,0 +1,4 @@
+2026-08-01 08:00:00 [DB-ERR] ORA-00060: deadlock detected while waiting for resource
+2026-08-01 08:00:41 [DB-OK ] backup completed 41GB in 2211s
+2026-08-01 09:14:22 [DB-ERR] ORA-01555: snapshot too old, rollback segment too small
+2026-08-01 09:40:00 [DB-OK ] statistics gathered for schema ACME_PROD

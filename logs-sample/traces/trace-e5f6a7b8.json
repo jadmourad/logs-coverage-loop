@@ -1,0 +1,2 @@
+{"traceId":"a1b2c3d4","span":"order.settle","durationMs":214,"status":"OK"}
+{"traceId":"a1b2c3d4","span":"price.resolve","durationMs":9,"status":"ERROR"}

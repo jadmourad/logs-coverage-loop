@@ -1,0 +1,17 @@
+# Run state. The ledger is the record of a run, but the scans and isolated
+# folders under it are large and reproducible. Keep the ledger, drop the bulk.
+runs/*/scans/
+runs/*/items/*/attempt-*/isolated/
+runs/*/items/*/attempt-*/report/
+runs/_incoming/
+runs/*/ralph.log
+runs/.preflight
+runs/*/.ledger.lock
+
+# Raw wiki snapshot: can be large, and may hold internal content that does not
+# belong in this repo. Re-created by /wiki-ingest.
+wiki/export/*
+!wiki/export/README.md
+
+__pycache__/
+*.pyc

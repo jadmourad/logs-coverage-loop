@@ -1,0 +1,6 @@
+# The loop runs under bash (WSL / Linux). Git for Windows defaults to
+# core.autocrlf=true, which would rewrite ralph.sh and tools/*.sh with CRLF on
+# checkout and break them. Keep everything LF in the repo and in the worktree.
+* text=auto eol=lf
+
+*.zip binary

@@ -1,0 +1,45 @@
+{
+  "$comment": [
+    "Pre-approved commands for the coverage loop. Without these, every tick",
+    "stalls on a permission prompt and the loop is not autonomous -- which is",
+    "the whole point of it. Each entry matches the exact command form written",
+    "in AGENTS.md section 5; if you change a command there, change it here.",
+    "",
+    "Deliberately NOT allowed: writes to the logs folder, arbitrary Edit of",
+    "the config (Worker C has no Edit tool and must go through config_edit.py),",
+    "rm, and git. Those stay prompted.",
+    "",
+    "Path rules use Edit(...), not Write(...) -- only Edit rules are matched by",
+    "file permission checks, and an Edit rule covers every file-editing tool.",
+    "A Write(...) deny rule looks right and silently does nothing.",
+    "",
+    "NONE OF THIS APPLIES UNTIL THE WORKSPACE IS TRUSTED. Open this folder in",
+    "VS Code once and accept the trust dialog; until you do, Claude Code ignores",
+    "every entry here and the loop stalls on its first command. preflight.py",
+    "checks for this."
+  ],
+  "permissions": {
+    "allow": [
+      "Bash(bash tools/standalone.sh:*)",
+      "Bash(python3 tools/ledger.py:*)",
+      "Bash(python3 tools/isolate.py:*)",
+      "Bash(python3 tools/config_edit.py:*)",
+      "Bash(python3 tools/verdict.py:*)",
+      "Bash(python3 tools/preflight.py:*)",
+      "Bash(python3 tests/run_tests.py:*)",
+      "Bash(python3 -m unittest:*)",
+      "Bash(ls:*)",
+      "Bash(cat runs/**)",
+      "Bash(grep:*)",
+      "Bash(mkdir -p runs/**)",
+      "Bash(mv runs/**)",
+      "Read(//home/jad_m/logs-coverage-loop/**)",
+      "Edit(//home/jad_m/logs-coverage-loop/runs/**)",
+      "Edit(//home/jad_m/logs-coverage-loop/wiki/**)"
+    ],
+    "deny": [
+      "Edit(//home/jad_m/logs-coverage-loop/logs-sample/**)",
+      "Edit(//home/jad_m/logs-coverage-loop/config/logs-parsing-config.yml)"
+    ]
+  }
+}

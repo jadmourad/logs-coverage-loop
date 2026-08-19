@@ -1,0 +1,13 @@
+2026-08-01 09:00:01,113 INFO  [main] Startup complete in 4210ms
+2026-08-01 09:00:02,004 INFO  [http-3] GET /api/orders 200 12ms
+2026-08-01 09:03:17,882 ERROR [http-7] OrderService failed to settle order 88213
+	at com.acme.order.Settle.apply(Settle.java:214)
+	at com.acme.order.Pipeline.run(Pipeline.java:88)
+[GC (Allocation Failure) 524288K->131072K(2097152K), 0.0421 secs]
+2026-08-01 09:04:00,120 WARN  [pool-2] Retry 1/3 for downstream inventory-svc
+[GC (Allocation Failure) 531002K->140221K(2097152K), 0.0388 secs]
+2026-08-01 09:07:41,551 ERROR [http-2] NullPointerException in PriceResolver
+	at com.acme.price.PriceResolver.resolve(PriceResolver.java:57)
+2026-08-01 09:09:12,001 AUDIT user=jmourad action=export.orders result=allow
+2026-08-01 09:10:44,777 WARN  [pool-2] Retry 2/3 for downstream inventory-svc
+2026-08-01 09:11:02,310 AUDIT user=svc-batch action=purge.temp result=allow

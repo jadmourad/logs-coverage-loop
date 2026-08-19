@@ -1,0 +1,32 @@
+# =============================================================================
+# FILLER -- stand-in for your real logs-parsing-config.yml.
+#
+# Replace this file with the real one. When you do, keep the three
+# "# @anchor:" comments (or update tools/config_edit.py to find your sections):
+# they are where Worker C inserts new rules, which is how your existing
+# comments and ordering survive an automated edit.
+#
+# Semantics the loop assumes -- confirm against the real tool, docs/CONTRACTS.md:
+#   file level:  ignore.files  ->  files[].pattern  ->  otherwise UNDETECTED
+#   line level:  ignore.lines  ->  files[].line_patterns  ->  otherwise UNMATCHED
+#   first match wins within each list.
+# =============================================================================
+version: 1
+
+# Files the tool knows how to parse, and what counts as a parsed line in them.
+files:
+  - id: app-log
+    pattern: '(^|/)app-\d{4}-\d{2}-\d{2}\.log$'
+    line_patterns:
+      - '\b(ERROR|FATAL)\b'
+      - '^\s+at [\w.$/]+\('
+  # @anchor:file-rules
+
+# Things the tool deliberately skips. Every entry needs a reason and, where one
+# exists, the wiki page that justifies it -- that is the audit trail for why a
+# log is NOT monitored.
+ignore:
+  files:
+    # @anchor:ignore-files
+  lines:
+    # @anchor:ignore-lines

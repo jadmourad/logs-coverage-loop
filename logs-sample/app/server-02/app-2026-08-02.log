@@ -1,0 +1,6 @@
+2026-08-02 11:00:00,001 INFO  [main] Startup complete in 3980ms
+[GC (Metadata GC Threshold) 812340K->221004K(2097152K), 0.0511 secs]
+2026-08-02 11:22:09,442 FATAL [http-1] Connection pool exhausted, shedding load
+	at com.acme.db.Pool.acquire(Pool.java:301)
+2026-08-02 11:22:10,001 AUDIT user=admin action=config.reload result=allow
+2026-08-02 11:30:55,190 WARN  [pool-9] Slow query 4102ms on orders_by_customer
